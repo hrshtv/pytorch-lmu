@@ -139,8 +139,8 @@ class LMUCell(nn.Module):
 
 class LMU(nn.Module):
     """ 
-    A single LMU layer 
-    
+    Single LMU layer
+
     Parameters:
         input_size (int) : 
             Size of the input vector (x_t)
@@ -162,7 +162,6 @@ class LMU(nn.Module):
         self.hidden_size = hidden_size
         self.memory_size = memory_size
         self.cell = LMUCell(input_size, hidden_size, memory_size, theta, learn_a, learn_b)
-        self.device = "cuda" if torch.cuda.is_available() else "cpu"
 
 
     def forward(self, x, state = None):
@@ -181,8 +180,11 @@ class LMU(nn.Module):
 
         # Initial state (h_0, m_0)
         if state == None:
-            h_0 = torch.zeros(batch_size, self.hidden_size).to(self.device)
-            m_0 = torch.zeros(batch_size, self.memory_size).to(self.device)
+            h_0 = torch.zeros(batch_size, self.hidden_size)
+            m_0 = torch.zeros(batch_size, self.memory_size)
+            if x.is_cuda:
+                h_0 = h_0.cuda()
+                m_0 = m_0.cuda()
             state = (h_0, m_0)
 
         # Iterate over the timesteps
