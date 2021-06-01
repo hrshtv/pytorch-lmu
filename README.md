@@ -1,9 +1,9 @@
 # PyTorch LMU
-This repository contains a PyTorch implementation of Legendre Memory Units (LMUs), as presented in the [NeurIPS 2019 paper](https://papers.nips.cc/paper/9689-legendre-memory-units-continuous-time-representation-in-recurrent-neural-networks) by Voelker AR, Kajić I and Eliasmith C.  
+This repository contains a PyTorch implementation of Legendre Memory Units (LMUs), as presented in the [NeurIPS 2019 paper](https://papers.nips.cc/paper/9689-legendre-memory-units-continuous-time-representation-in-recurrent-neural-networks) by Voelker AR, Kajić I, and Eliasmith C.  
 SOTA performance on the psMNIST dataset is reproduced in [`examples/`](examples).
 
 ## Usage
-`torch`, `numpy` and `scipy` are the only requirements.  
+`torch`, `numpy`, and `scipy` are the only requirements.  
 [`src/lmu.py`](src/lmu.py) contains the implementations of `LMUCell` and `LMU`.  
 A quick example:  
 ```python3
@@ -22,9 +22,8 @@ output, (h_n, m_n) = model(x)
 ```
 
 ## Running on psMNIST
-- Open [`examples/lmu_psmnist.ipynb`](examples/lmu_psmnist.ipynb) in [Google Colab](https://colab.research.google.com/) (can also be run locally if the requirements are satisfied)
-- Upload [`examples/permutation.pt`](examples/permutation.pt) and run the notebook
-- The previous step is just to reproduce the results obtained, `torch.randperm(784)` can be used alternatively to test with a new permutation  
+- Clone this repository and open [`examples/lmu_psmnist.ipynb`](examples/lmu_psmnist.ipynb) (running in [Google Colab](https://colab.research.google.com/) is preferred)
+- [`examples/permutation.pt`](examples/permutation.pt) contains the permutation tensor used while creating the psMNIST data; it's included for reproducibility. Alternatively, `torch.randperm(784)` can be used to test with a new permutation.  
 
 ## References
 - [Voelker, Aaron R., Ivana Kajić, and Chris Eliasmith. "Legendre memory units: Continuous-time representation in recurrent neural networks." (2019).](https://papers.nips.cc/paper/9689-legendre-memory-units-continuous-time-representation-in-recurrent-neural-networks)
