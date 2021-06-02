@@ -1,25 +1,45 @@
 # PyTorch LMU
 This repository contains a PyTorch implementation of Legendre Memory Units (LMUs), as presented in the [NeurIPS 2019 paper](https://papers.nips.cc/paper/9689-legendre-memory-units-continuous-time-representation-in-recurrent-neural-networks) by Voelker AR, Kajić I, and Eliasmith C.  
-SOTA performance on the psMNIST dataset is reproduced in [`examples/`](examples).
+Performance on the psMNIST dataset is demonstrated in [`examples/`](examples).
 
 ## Usage
 `torch`, `numpy`, and `scipy` are the only requirements.  
-[`src/lmu.py`](src/lmu.py) contains the implementations of `LMUCell` and `LMU`.  
-A quick example:  
-```python3
-import torch
-from lmu import LMU
+[`src/lmu.py`](src/lmu.py) contains the implementations of `LMUCell`, `LMU` and `LMUFFT`.  
+  
+**Examples:**
 
-model = LMU(
-    input_size = 1,
-    hidden_size = 212,
-    memory_size = 256,
-    theta = 784
-)
+- LMU
+    ```python3
+    import torch
+    from lmu import LMU
 
-x = torch.rand(100, 784, 1) # [batch_size, seq_len, input_size]
-output, (h_n, m_n) = model(x)
-```
+    model = LMU(
+        input_size = 1,
+        hidden_size = 212,
+        memory_size = 256,
+        theta = 784
+    )
+
+    x = torch.rand(100, 784, 1) # [batch_size, seq_len, input_size]
+    output, (h_n, m_n) = model(x)
+    ```
+
+- LMUFFT
+    ```python3
+    import torch
+    from lmu import LMUFFT
+
+    model = LMUFFT(
+        input_size = 1,
+        hidden_size = 346,
+        memory_size = 468, 
+        seq_len = 784, 
+        theta = 784
+    )
+
+    x = torch.rand(100, 784, 1) # [batch_size, seq_len, input_size]
+    output, h_n = model(x)
+    ```
 
 ## Running on psMNIST
 - Clone this repository and open [`examples/lmu_psmnist.ipynb`](examples/lmu_psmnist.ipynb) (running in [Google Colab](https://colab.research.google.com/) is preferred)
