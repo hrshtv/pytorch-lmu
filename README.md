@@ -55,6 +55,5 @@ Performance on the psMNIST dataset is demonstrated in [`examples/`](examples).
 ## References
 - [Voelker, Aaron R., Ivana Kajić, and Chris Eliasmith. "Legendre memory units: Continuous-time representation in recurrent neural networks." (2019).](https://papers.nips.cc/paper/9689-legendre-memory-units-continuous-time-representation-in-recurrent-neural-networks)
 - [Chilkuri, Narsimha, and Chris Eliasmith. "Parallelizing Legendre Memory Unit Training." (2021)](https://arxiv.org/abs/2102.11417)
-- Official Keras implementation of LMU: [nengo/keras-lmu](https://github.com/nengo/keras-lmu)
-- Official Keras implementation of LMUFFT: [NarsimhaChilkuri/Parallelizing-Legendre-Memory-Unit-Training](https://github.com/NarsimhaChilkuri/Parallelizing-Legendre-Memory-Unit-Training)
+- Official Keras implementation of LMU and LMUFFT: [nengo/keras-lmu](https://github.com/nengo/keras-lmu)
 - [Legendre Memory Units in NengoDL](https://www.nengo.ai/nengo-dl/examples/lmu.html)
